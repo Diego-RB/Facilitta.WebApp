@@ -12,25 +12,23 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from "./pages/login/login.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent
-  ],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true
+    RouterModule.forRoot(AppRoutes, {
+      useHash: true,
     }),
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

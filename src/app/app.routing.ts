@@ -18,5 +18,11 @@ export const AppRoutes: Routes = [
   {
     path: '**',
     redirectTo: 'dashboard'
-  }
+  },
+  {
+    path: '/login',
+    component: AdminLayoutComponent,
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
 ]
