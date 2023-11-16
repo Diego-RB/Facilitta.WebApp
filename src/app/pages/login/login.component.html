@@ -1,16 +1,25 @@
 <div class="page">
-  <form method="POST" class="formLogin">
+  <form [formGroup]="form" class="formLogin">
     <h1>Login</h1>
     <p>Digite os seus dados de acesso no campo abaixo.</p>
     <label for="email">E-mail</label>
-    <input type="email" placeholder="Digite seu e-mail" autofocus="true" />
+    <input type="email" placeholder="Digite seu e-mail" formControlName="email" autofocus="true" />
     <label for="password">Senha</label>
-    <input type="password" placeholder="Digite seu e-mail" />
-    <a href="/">Esqueci minha senha</a>
-    <input type="submit" value="Acessar" class="btn" />
+    <input type="password" placeholder="Digite sua senha" formControlName="password" />
+    <a *ngIf="isLogin" href="/">Esqueci minha senha</a>
+    <button *ngIf="isLogin && !isLoadingButton" (click)="loginORRegister()" class="btn">Login</button>
+    <button *ngIf="!isLogin && !isLoadingButton" (click)="loginORRegister()" class="btn">Registrar-se</button>
+    <button *ngIf="isLoadingButton" class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true">
+      </span> Loading...
+    </button>
     <p class="w-100 text-center" style="color: rgb(71, 70, 70)">
       &mdash; Ou conecte-se com &mdash;
     </p>
-    <input type="submit" value="Google" class="btn" />
+    <button class="btn">Google</button>
+    <a *ngIf="!isLogin" (click)="setValueIsLogin()" [routerLink]="['/login']">Já possui conta? Clique em Login</a>
+    <a *ngIf="isLogin" (click)="setValueIsLogin()" [routerLink]="['/login']">Ainda não possui conta? Clique em Registrar-se</a>
   </form>
 </div>
