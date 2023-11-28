@@ -9,6 +9,7 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { UpgradeComponent } from './pages/upgrade/upgrade.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "upgrade", component: UpgradeComponent },
   { path: "login", component: LoginComponent },
+  { path: "reset-password", component: ResetPasswordComponent },
 ];
 
 @NgModule({

@@ -35,9 +35,21 @@ export class LoginComponent implements OnInit {
   public loginORRegister() {
     this.isLoadingButton = true;
 
-    this.isLoadingButton = this.authServer.singIn({
-      email: this.form.value.email,
-      password: this.form.value.password,
-    });
+    if(this.isLogin){
+      this.isLoadingButton = this.authServer.singIn({
+        email: this.form.value.email,
+        password: this.form.value.password,
+      });
+    }else{
+      this.authServer.Register({
+        email: this.form.value.email,
+        password: this.form.value.password
+      });
+      this.isLoadingButton = false;
+    }
+  }
+
+  public singInAndRegisterWhithProvider(){
+    this.authServer.singInAndRegisterWhithProvider();
   }
 }
